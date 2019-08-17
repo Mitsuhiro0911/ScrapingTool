@@ -12,6 +12,12 @@ fun main () {
     // 要素の指定
     val elements = document.select("h2")
     for (element in elements) {
-        System.out.println(element.text())
+        println(element.text())
+    }
+    // 属性の指定
+    val attributes = document.select("a").attr("abs:href", "")
+    println(attributes)
+    for (attribute in attributes) {
+        println(attribute)
     }
 }
