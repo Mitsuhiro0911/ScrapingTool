@@ -1,9 +1,4 @@
 import org.jsoup.Jsoup
-import java.awt.SystemColor.text
-
-
-
-
 
 fun main () {
     // URLの指定
@@ -20,4 +15,7 @@ fun main () {
     for (attribute in attributes) {
         println(attribute)
     }
+    // IDの指定
+    val id = document.getElementById("top")
+    println(id)
 }
