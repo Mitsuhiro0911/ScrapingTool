@@ -11,7 +11,6 @@ fun main () {
     }
     // 属性の指定
     val attributes = document.select("a").attr("abs:href", "")
-    println(attributes)
     for (attribute in attributes) {
         println(attribute)
     }
