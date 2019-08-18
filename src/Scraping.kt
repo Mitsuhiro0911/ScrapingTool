@@ -1,20 +1,39 @@
-import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 
-fun main () {
-    // URLの指定
-    val document = Jsoup.connect("https://ja.wikipedia.org/wiki/メインページ").get()
-    println(document.html())
-    // 要素の指定
-    val elements = document.select("h2")
-    for (element in elements) {
-        println(element.text())
+class Scraping(val document:Document) {
+    /**
+     * コンストラクタ
+     * コネクトしたURLの全HTML情報の出力
+     */
+    init {
+        println(document.html())
     }
-    // 属性の指定
-    val attributes = document.select("a").attr("abs:href", "")
-    for (attribute in attributes) {
-        println(attribute)
+
+    /**
+     * 要素による抽出
+     */
+    fun getInfoByElement () {
+        val elements = document.select("h2")
+        for (element in elements) {
+            println(element.text())
+        }
     }
-    // IDの指定
-    val id = document.getElementById("top")
-    println(id)
+
+    /**
+     * 属性による抽出
+     */
+    fun getInfoByAttr () {
+        val attributes = document.select("a").attr("abs:href", "")
+        for (attribute in attributes) {
+            println(attribute)
+        }
+    }
+
+    /**
+     * IDによる抽出
+     */
+    fun getInfoById () {
+        val id = document.getElementById("top")
+        println(id)
+    }
 }
